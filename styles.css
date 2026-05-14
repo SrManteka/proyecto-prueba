@@ -1,0 +1,188 @@
+/* Palette: Gold (#D4AF37), Dark Gray (#333), White (#FFFFFF), Black (#000000) */
+
+:root {
+    --gold: #D4AF37;
+    --dark-gray: #333333;
+    --black: #000000;
+    --white: #FFFFFF;
+    --light-gray: #f4f4f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', serif; /* Elegant serif for luxury feel */
+    line-height: 1.6;
+    color: var(--black);
+    background-color: var(--white);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 10%;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--light-gray);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-size: 0.85rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 0 10%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.hero h1, .hero p, .hero .btn {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin-bottom: 3rem;
+    color: var(--light-gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn {
+    padding: 1.2rem 3.5rem;
+    border: 1px solid var(--gold);
+    background-color: transparent;
+    color: var(--gold);
+    text-decoration: none;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+}
+
+.btn:hover {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+/* Certifications Section */
+.certifications {
+    padding: 8rem 10%;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.certifications h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.cert-placeholder {
+    border: 1px solid var(--light-gray);
+    padding: 4rem 2rem;
+    color: var(--dark-gray);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    background-color: var(--white);
+}
+
+.cert-placeholder:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+}
+
+/* Footer */
+footer {
+    padding: 4rem 10%;
+    background-color: var(--black);
+    color: var(--gold);
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-top: 1px solid var(--dark-gray);
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    .navbar { padding: 1.5rem 5%; }
+    .nav-links { display: none; }
+}
