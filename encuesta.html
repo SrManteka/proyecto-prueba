@@ -70,7 +70,50 @@
             border: 1px solid rgba(212, 175, 55, 0.2);
             min-height: 400px;
         }
+        .pregunta-grupo {
+            margin-bottom: 2rem;
+}
 
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            }
+
+input, select, textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--black);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--gold);
+    color: var(--black);
+}
         footer {
             padding: 2rem;
             text-align: center;
@@ -91,9 +134,31 @@
     </header>
 
     <div class="container" id="survey-container">
-        <!-- Las preguntas se insertarán aquí dinámicamente -->
-        <p style="text-align: center; color: #999; font-style: italic;">Cargando preguntas del filtro...</p>
-    </div>
+    <form id="filtroForm">
+        <div class="pregunta-grupo">
+            <label>1. Nombre Completo</label>
+            <input type="text" name="nombre" required placeholder="Escriba su nombre">
+        </div>
+
+        <div class="pregunta-grupo">
+            <label>2. ¿En qué área requiere asesoría?</label>
+            <select name="area" required>
+                <option value="">Seleccione una opción...</option>
+                <option value="civil">Derecho Civil</option>
+                <option value="familiar">Derecho Familiar</option>
+                <option value="amparo">Juicio de Amparo</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="pregunta-grupo">
+            <label>3. Describa brevemente su situación legal:</label>
+            <textarea name="descripcion" rows="4" required placeholder="Su mensaje aquí..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Enviar para Revisión</button>
+    </form>
+</div>
 
     <footer>
         &copy; 2026 Lic. Lilibeth Navarrete. Todos los derechos reservados.
