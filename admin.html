@@ -239,11 +239,17 @@
 
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            // Simulación simple de login
-            loginSection.style.display = 'none';
-            dashboard.style.display = 'block';
-            document.body.style.alignItems = 'flex-start';
-            document.body.style.paddingTop = '5rem';
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            if (user === 'AbogadosNR' && pass === 'MLNR2000') {
+                loginSection.style.display = 'none';
+                dashboard.style.display = 'block';
+                document.body.style.alignItems = 'flex-start';
+                document.body.style.paddingTop = '5rem';
+            } else {
+                alert('Credenciales incorrectas. Por favor, intente de nuevo.');
+            }
         });
 
         function logout() {
@@ -251,6 +257,7 @@
             loginSection.style.display = 'block';
             document.body.style.alignItems = 'center';
             document.body.style.paddingTop = '0';
+            loginForm.reset();
         }
     </script>
     <script>    

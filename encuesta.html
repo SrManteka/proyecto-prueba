@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Filtro Legal | Lic. Lilibeth Navarrete</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-gray: #333333;
+            --black: #000000;
+            --white: #FFFFFF;
+            --light-gray: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 4rem 10%;
+            text-align: center;
+            background-color: var(--black);
+            color: var(--white);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 4rem;
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            min-height: 400px;
+        }
+
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Consulta de Filtro Legal</h1>
+        <a href="index.html" class="back-btn">← Regresar al Inicio</a>
+    </header>
+
+    <div class="container" id="survey-container">
+        <!-- Las preguntas se insertarán aquí dinámicamente -->
+        <p style="text-align: center; color: #999; font-style: italic;">Cargando preguntas del filtro...</p>
+    </div>
+
+    <footer>
+        &copy; 2026 Lic. Lilibeth Navarrete. Todos los derechos reservados.
+    </footer>
+
+</body>
+</html>
