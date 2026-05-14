@@ -46,6 +46,41 @@
         </div>
     </section>
 
+    <section class="contact-form">
+        <h2>Consulta Legal</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ingrese su nombre">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" required placeholder="Ej: +52 123 456 7890">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" required placeholder="correo@ejemplo.com">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="problema">¿Cuál es su problema legal?</label>
+                <select id="problema" name="problema" required>
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="civil">Derecho Civil</option>
+                    <option value="penal">Derecho Penal</option>
+                    <option value="familiar">Derecho Familiar</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Detalles de su caso</label>
+                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describa brevemente su situación..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit">Enviar Consulta</button>
+        </form>
+    </section>
+
     <footer>
         <p>&copy; 2026 Lic. Lilibeth Navarrete. Todos los derechos reservados.</p>
     </footer>
