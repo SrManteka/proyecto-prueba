@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | Lic. Lilibeth Navarrete</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-gray: #333333;
+            --black: #000000;
+            --white: #FFFFFF;
+            --light-gray: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: var(--light-gray);
+            color: var(--black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Login Container */
+        .login-container {
+            background-color: var(--white);
+            padding: 4rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--black);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fafafa;
+            font-family: inherit;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-login:hover {
+            background-color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        /* Dashboard (Hidden by default) */
+        #dashboard {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 1rem;
+        }
+
+        .dashboard-header h2 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .btn-logout {
+            padding: 0.5rem 1.5rem;
+            background-color: var(--black);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 1.2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #fafafa;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--dark-gray);
+        }
+
+        tr:hover {
+            background-color: #fcfcfc;
+        }
+
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login-section" class="login-container">
+        <h2>Acceso Administrativo</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" required placeholder="Usuario">
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn-login">Entrar</button>
+        </form>
+    </div>
+
+    <div id="dashboard">
+        <div class="dashboard-header">
+            <h2>Mensajes de Clientes</h2>
+            <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Cliente</th>
+                    <th>Asunto</th>
+                    <th>Teléfono</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>13/05/2026</td>
+                    <td>Juan Pérez</td>
+                    <td>Derecho Familiar</td>
+                    <td>555-0123</td>
+                    <td><span class="status-badge">Nuevo</span></td>
+                </tr>
+                <tr>
+                    <td>12/05/2026</td>
+                    <td>María García</td>
+                    <td>Derecho Civil</td>
+                    <td>555-4567</td>
+                    <td><span class="status-badge">Nuevo</span></td>
+                </tr>
+                <tr>
+                    <td>10/05/2026</td>
+                    <td>Roberto Sánchez</td>
+                    <td>Amparo</td>
+                    <td>555-8901</td>
+                    <td><span class="status-badge" style="background-color: #fff3e0; color: #ef6c00;">Pendiente</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const loginSection = document.getElementById('login-section');
+        const dashboard = document.getElementById('dashboard');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulación simple de login
+            loginSection.style.display = 'none';
+            dashboard.style.display = 'block';
+            document.body.style.alignItems = 'flex-start';
+            document.body.style.paddingTop = '5rem';
+        });
+
+        function logout() {
+            dashboard.style.display = 'none';
+            loginSection.style.display = 'block';
+            document.body.style.alignItems = 'center';
+            document.body.style.paddingTop = '0';
+        }
+    </script>
+    <script>    
+    function login() 
+    {
+        // Obtenemos los valores de los inputs
+        const usuario = document.getElementById('usuario').value;
+        const pass = document.getElementById('password').value;
+
+        // Definimos las credenciales (esto es simulado)
+        if (usuario === 'AbogadosNR' && pass === 'MRLNR2000') {
+            // Ocultamos el login y mostramos el dashboard
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('dashboard-section').style.display = 'block';
+            alert('Bienvenida, Lic. Navarrete');
+        } else {
+            alert('Usuario o contraseña incorrectos. Intente de nuevo.');
+        }
+    }
+    </script>
+    
+    async function obtenerIP() {
+    try {
+        const respuesta = await fetch('https://api.ipify.org?format=json');
+        const datos = await respuesta.json();
+        console.log("IP del visitante:", datos.ip);
+        return datos.ip;
+    } catch (error) {
+        return "IP no disponible";
+    }
+}
+
+// Ejemplo de cómo usarlo al enviar el formulario
+async function enviarFormulario() {
+    const ip = await obtenerIP();
+    alert("Formulario enviado desde la IP: " + ip);
+    // Aquí es donde luego conectaríamos con la base de datos
+}
+</body>
+</html>
