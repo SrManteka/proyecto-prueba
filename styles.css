@@ -136,14 +136,18 @@ body {
     color: var(--black);
 }
 
-/* Certifications Section */
-.certifications {
+/* Certifications & Services Sections */
+.certifications, .services {
     padding: 8rem 10%;
     background-color: var(--white);
     text-align: center;
 }
 
-.certifications h2 {
+.services {
+    background-color: var(--light-gray); /* Subtle contrast from certifications */
+}
+
+.certifications h2, .services h2 {
     font-size: 2.5rem;
     font-weight: 400;
     color: var(--black);
