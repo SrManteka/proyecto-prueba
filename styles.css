@@ -144,7 +144,7 @@ body {
 }
 
 .services {
-    background-color: var(--light-gray); /* Subtle contrast from certifications */
+    background-color: var(--white); /* Alterna con "Formación" (gris) y "Costos" (gris) */
 }
 
 .certifications h2, .services h2 {
@@ -182,6 +182,9 @@ body {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
 }
+
+.cert-icon {
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
 }
 
@@ -323,7 +326,7 @@ footer {
 /* Costos y Condiciones (index.html#costos) */
 .pricing {
     padding: 8rem 10%;
-    background-color: var(--white);
+    background-color: var(--light-gray);
     text-align: center;
 }
 
@@ -379,7 +382,7 @@ footer {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--gold);
+    color: var(--gold-text);
     text-align: center;
 }
 
@@ -420,4 +423,256 @@ footer {
     .pricing h2 { font-size: 1.8rem; letter-spacing: 3px; }
     .pricing-card { padding: 2rem 1.5rem; }
     .pricing-list li { flex-direction: column; gap: 0.2rem; }
+}
+
+/* ==========================================================
+   Presentación de Lilibeth: hero, Sobre mí, Formación, Contacto
+   (contenido tomado de su CV)
+   ========================================================== */
+
+/* Cifras uniformes (Playfair por defecto usa números "antiguos": 0539 se ve como o539) */
+body { font-variant-numeric: lining-nums; }
+
+/* Dorado más oscuro para textos pequeños sobre fondo claro (el #D4AF37 se lee poco) */
+:root { --gold-text: #8A6D12; }
+
+/* Que el menú no tape el título al saltar a una sección */
+#sobre-mi, #formacion, #servicios, #costos, #contacto { scroll-margin-top: 5rem; }
+
+/* Hero: título profesional y cédula */
+.hero .hero-kicker {
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
+    letter-spacing: 5px;
+    color: var(--gold);
+}
+
+.hero h1 { font-size: 3.6rem; line-height: 1.15; }
+
+.hero .hero-credential {
+    margin-bottom: 1.2rem;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: var(--white);
+}
+
+.hero .hero-credential + p { max-width: 900px; margin-bottom: 3rem; }
+
+/* Títulos de sección compartidos */
+.about, .formation, .contact {
+    padding: 8rem 10%;
+    text-align: center;
+}
+
+.about h2, .formation h2, .contact h2 {
+    margin-bottom: 4rem;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.about, .contact { background-color: var(--white); }
+.formation { background-color: var(--light-gray); }
+
+/* ---------- Sobre mí ---------- */
+.about-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.about-profile { flex: 1 1 380px; }
+.about-experience { flex: 1 1 420px; }
+
+.about-lead {
+    margin-bottom: 2.5rem;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--dark-gray);
+}
+
+.about-facts { list-style: none; }
+
+.about-facts li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--light-gray);
+    font-family: sans-serif;
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+}
+
+.about-facts li span {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold-text);
+}
+
+.about-experience h3,
+.formation-subtitle {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--black);
+}
+
+/* Línea de tiempo */
+.timeline {
+    list-style: none;
+    padding-left: 2rem;
+    border-left: 1px solid var(--gold);
+}
+
+.timeline li {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.timeline li:last-child { margin-bottom: 0; }
+
+.timeline li::before {
+    content: '';
+    position: absolute;
+    left: calc(-2rem - 5px);
+    top: 0.45rem;
+    width: 9px;
+    height: 9px;
+    background-color: var(--gold);
+    border-radius: 50%;
+}
+
+.timeline h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--black);
+}
+
+.timeline .timeline-org {
+    margin: 0.2rem 0;
+    font-style: italic;
+    color: var(--black);
+}
+
+.timeline .timeline-date {
+    margin-bottom: 0.5rem;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--gold-text);
+}
+
+.timeline p {
+    font-family: sans-serif;
+    font-size: 0.92rem;
+    color: var(--dark-gray);
+}
+
+/* ---------- Formación y certificaciones ---------- */
+.formation .cert-grid { margin-bottom: 5rem; }
+
+.formation-subtitle { margin-bottom: 2rem; }
+
+.course-list {
+    list-style: none;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.course-list li {
+    display: flex;
+    gap: 2rem;
+    padding: 1.3rem 0;
+    border-bottom: 1px solid #dcdcdc;
+    font-family: sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--dark-gray);
+}
+
+.course-list li:last-child { border-bottom: 0; }
+
+.course-list strong { color: var(--black); }
+
+.course-date {
+    flex: 0 0 150px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold-text);
+}
+
+/* ---------- Contacto ---------- */
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.contact-item {
+    flex: 1;
+    min-width: 280px;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 2.5rem 2rem;
+    background-color: var(--white);
+    border: 1px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+}
+
+.contact-icon { font-size: 2rem; }
+
+.contact-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold-text);
+}
+
+.contact-item strong {
+    font-family: sans-serif;
+    font-size: 1.05rem;
+    color: var(--black);
+    word-break: break-word;
+}
+
+.contact-note {
+    margin-bottom: 2rem;
+    font-family: sans-serif;
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .about, .formation, .contact { padding: 5rem 5%; }
+    .about h2, .formation h2, .contact h2 { font-size: 1.8rem; letter-spacing: 3px; margin-bottom: 3rem; }
+    .about-grid { gap: 3rem; }
+    .course-list li { flex-direction: column; gap: 0.3rem; }
+    .course-date { flex: none; }
+    .course-date:empty { display: none; }
 }
