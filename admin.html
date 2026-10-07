@@ -172,6 +172,21 @@
             background-color: #e8f5e9;
             color: #2e7d32;
         }
+
+        /* Solicitudes del Filtro Legal */
+        #solicitudes-body tr.fila-solicitud { cursor: pointer; }
+        .fila-detalle td { background-color: #fafafa; padding: 1.5rem 2rem; }
+        .detalle-item { margin-bottom: 1rem; }
+        .detalle-item:last-child { margin-bottom: 0; }
+        .detalle-item strong {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--dark-gray);
+        }
+        .detalle-item span { white-space: pre-wrap; }
+        .solicitudes-vacio { margin-top: 2rem; text-align: center; color: #777; }
     </style>
 </head>
 <body>
@@ -201,36 +216,18 @@
                 <tr>
                     <th>Fecha</th>
                     <th>Cliente</th>
-                    <th>Asunto</th>
-                    <th>Teléfono</th>
+                    <th>Área</th>
+                    <th>WhatsApp</th>
                     <th>Estado</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>13/05/2026</td>
-                    <td>Juan Pérez</td>
-                    <td>Derecho Familiar</td>
-                    <td>555-0123</td>
-                    <td><span class="status-badge">Nuevo</span></td>
-                </tr>
-                <tr>
-                    <td>12/05/2026</td>
-                    <td>María García</td>
-                    <td>Derecho Civil</td>
-                    <td>555-4567</td>
-                    <td><span class="status-badge">Nuevo</span></td>
-                </tr>
-                <tr>
-                    <td>10/05/2026</td>
-                    <td>Roberto Sánchez</td>
-                    <td>Amparo</td>
-                    <td>555-8901</td>
-                    <td><span class="status-badge" style="background-color: #fff3e0; color: #ef6c00;">Pendiente</span></td>
-                </tr>
-            </tbody>
+            <tbody id="solicitudes-body"></tbody>
         </table>
+        <p id="solicitudes-vacio" class="solicitudes-vacio">Aún no hay solicitudes del Filtro Legal.</p>
     </div>
+
+    <script src="store.js"></script>
+    <script src="admin-solicitudes.js"></script>
 
     <script>
         const loginForm = document.getElementById('login-form');

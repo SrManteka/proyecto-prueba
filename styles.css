@@ -195,7 +195,7 @@ body {
 .cert-placeholder p {
     font-size: 0.9rem;
     color: var(--dark-gray);
-    font-family: sans-serif; /* Cleaner for body text in cards */
+    font-family: sans-serif; 
 }
 
 .cert-placeholder:hover {
@@ -318,4 +318,106 @@ footer {
     .hero h1 { font-size: 2.8rem; }
     .navbar { padding: 1.5rem 5%; }
     .nav-links { display: none; }
+}
+
+/* Costos y Condiciones (index.html#costos) */
+.pricing {
+    padding: 8rem 10%;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.pricing h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.pricing-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 520px;
+    padding: 3rem 2.5rem;
+    background-color: var(--white);
+    border: 1px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    color: var(--dark-gray);
+    text-align: left;
+}
+
+.pricing-card h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.pricing-price {
+    font-size: 2.8rem;
+    line-height: 1.1;
+    color: var(--black);
+    text-align: center;
+    font-variant-numeric: lining-nums;
+}
+
+.pricing-price small { font-size: 1rem; letter-spacing: 2px; }
+
+.pricing-caption {
+    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-align: center;
+}
+
+.pricing-card p,
+.pricing-details li {
+    font-family: sans-serif;
+    font-size: 0.95rem;
+}
+
+.pricing-card p { margin-top: 1rem; }
+
+.pricing-details { list-style: none; }
+.pricing-details li { padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+
+.pricing-list { list-style: none; }
+
+.pricing-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    font-family: sans-serif;
+    font-size: 0.95rem;
+}
+
+.pricing-list li:last-child { border-bottom: 0; }
+.pricing-list strong { white-space: nowrap; color: var(--black); }
+
+.pricing-cta { display: inline-block; margin-top: 4rem; }
+
+.btn-dark { color: var(--black); border-color: var(--black); }
+.btn-dark:hover { background-color: var(--black); color: var(--gold); }
+
+@media (max-width: 768px) {
+    .pricing { padding: 5rem 5%; }
+    .pricing h2 { font-size: 1.8rem; letter-spacing: 3px; }
+    .pricing-card { padding: 2rem 1.5rem; }
+    .pricing-list li { flex-direction: column; gap: 0.2rem; }
 }

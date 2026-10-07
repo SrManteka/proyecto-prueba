@@ -3,166 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de Filtro Legal | Lic. Lilibeth Navarrete</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #D4AF37;
-            --dark-gray: #333333;
-            --black: #000000;
-            --white: #FFFFFF;
-            --light-gray: #f4f4f4;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Playfair Display', serif;
-            background-color: var(--white);
-            color: var(--black);
-            line-height: 1.6;
-        }
-
-        header {
-            padding: 4rem 10%;
-            text-align: center;
-            background-color: var(--black);
-            color: var(--white);
-            border-bottom: 2px solid var(--gold);
-        }
-
-        h1 {
-            font-size: 3rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 1rem;
-        }
-
-        .back-btn {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 0.8rem 2rem;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background-color: var(--gold);
-            color: var(--black);
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 5rem auto;
-            padding: 4rem;
-            background-color: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            min-height: 400px;
-        }
-        .pregunta-grupo {
-            margin-bottom: 2rem;
-}
-
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--black);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            }
-
-input, select, textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: inherit;
-    font-size: 1rem;
-}
-
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--gold);
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 1rem;
-    background-color: var(--black);
-    color: var(--gold);
-    border: 1px solid var(--gold);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.submit-btn:hover {
-    background-color: var(--gold);
-    color: var(--black);
-}
-        footer {
-            padding: 2rem;
-            text-align: center;
-            background-color: var(--light-gray);
-            color: var(--dark-gray);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5rem;
-        }
-    </style>
+    <title>Solicitud de Asesoría jurídica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="encuesta.css">
 </head>
-<body>
+<body class="filtro-page">
 
-    <header>
-        <h1>Consulta de Filtro Legal</h1>
+    <div class="filtro-topbar">
         <a href="index.html" class="back-btn">← Regresar al Inicio</a>
-    </header>
+    </div>
 
-    <div class="container" id="survey-container">
-    <form id="filtroForm">
-        <div class="pregunta-grupo">
-            <label>1. Nombre Completo</label>
-            <input type="text" name="nombre" required placeholder="Escriba su nombre">
+    <main class="filtro-wrap">
+
+        <!-- ================= FORMULARIO ================= -->
+        <div id="filtro-formulario">
+
+            <!-- Imagen de encabezado del Google Form (1600x400). Guardarla como img/filtro-encabezado.jpg; si no existe, no se muestra. -->
+            <img class="filtro-banner" src="img/filtro-encabezado.jpg" alt="" onerror="this.remove()">
+
+            <header class="filtro-card filtro-card-header">
+                <h1 class="filtro-titulo">Solicitud de Asesoría Jurídica.</h1>
+                <p class="filtro-intro"><b>Gracias por tu interés en una asesoría jurídica.<br>Este formulario me permitirá conocer tu caso de forma general para brindarte una atención más clara, estratégica y eficiente.</b></p>
+                <p class="aviso-obligatorio">* Indica que la pregunta es obligatoria</p>
+            </header>
+
+            <form id="filtroForm">
+
+                <!-- 1 · Texto corto · obligatoria -->
+                <div class="filtro-card pregunta-grupo">
+                    <label class="pregunta-label" for="nombre">Nombre completo <span class="req">*</span></label>
+                    <input class="filtro-input" type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Tu respuesta">
+                </div>
+
+                <!-- 2 · Texto corto · obligatoria -->
+                <div class="filtro-card pregunta-grupo">
+                    <label class="pregunta-label" for="whatsapp">Número de contacto (Whatsapp) <span class="req">*</span></label>
+                    <input class="filtro-input" type="tel" id="whatsapp" name="whatsapp" required minlength="10" inputmode="tel" autocomplete="tel" placeholder="Tu respuesta">
+                </div>
+
+                <!-- 3 · Texto corto · opcional -->
+                <div class="filtro-card pregunta-grupo">
+                    <label class="pregunta-label" for="correo">Correo electrónico (opcional)</label>
+                    <input class="filtro-input" type="email" id="correo" name="correo" autocomplete="email" placeholder="Tu respuesta">
+                </div>
+
+                <!-- 4 · Opción única con "Otro" · obligatoria -->
+                <fieldset class="filtro-card pregunta-grupo">
+                    <legend class="pregunta-label">¿En qué área necesitas asesoría? <span class="req">*</span></legend>
+                    <label class="opcion"><input type="radio" name="area" value="Derecho familiar" required> Derecho familiar</label>
+                    <label class="opcion"><input type="radio" name="area" value="Derecho civil"> Derecho civil</label>
+                    <label class="opcion"><input type="radio" name="area" value="Derecho laboral"> Derecho laboral</label>
+                    <label class="opcion opcion-otro">
+                        <input type="radio" name="area" value="__otro__" id="area-otro"> Otro:
+                        <input class="filtro-input" type="text" id="area-otro-texto" name="area_otro" disabled aria-label="Otra área">
+                    </label>
+                </fieldset>
+
+                <!-- 5 · Párrafo · opcional -->
+                <div class="filtro-card pregunta-grupo">
+                    <label class="pregunta-label" for="descripcion">
+                        Describe brevemente tu situación
+                        <i class="ayuda">(Ejemplo: qué pasó, con quién, desde cuándo)</i>
+                    </label>
+                    <textarea class="filtro-input" id="descripcion" name="descripcion" rows="3" placeholder="Tu respuesta"></textarea>
+                </div>
+
+                <!-- 6 · Casillas (varias) · obligatoria -->
+                <fieldset class="filtro-card pregunta-grupo" id="grupo-etapa">
+                    <legend class="pregunta-label">¿En qué etapa se encuentra tu asunto? <span class="req">*</span></legend>
+                    <label class="opcion"><input type="checkbox" name="etapa" value="Solo tengo dudas / quiero orientación."> Solo tengo dudas / quiero orientación.</label>
+                    <label class="opcion"><input type="checkbox" name="etapa" value="Existe conflicto con otra persona."> Existe conflicto con otra persona.</label>
+                    <label class="opcion"><input type="checkbox" name="etapa" value="Ya hay proceso legal iniciado."> Ya hay proceso legal iniciado.</label>
+                    <label class="opcion"><input type="checkbox" name="etapa" value="No estoy seguro/a."> No estoy seguro/a.</label>
+                    <p class="error-msg" id="error-etapa" hidden>Esta pregunta es obligatoria. Selecciona al menos una opción.</p>
+                </fieldset>
+
+                <!-- 7 · Párrafo · obligatoria -->
+                <div class="filtro-card pregunta-grupo">
+                    <label class="pregunta-label" for="objetivo">
+                        ¿Qué te gustaría obtener de la asesoría? <span class="req">*</span>
+                        <i class="ayuda">(Ejemplo: saber si puedo demandar, entender mis derechos, revisar opciones, etc.)</i>
+                    </label>
+                    <textarea class="filtro-input" id="objetivo" name="objetivo" rows="3" required placeholder="Tu respuesta"></textarea>
+                </div>
+
+                <!-- 8 · Párrafo · opcional -->
+                <div class="filtro-card pregunta-grupo">
+                    <label class="pregunta-label" for="preguntas">¿Tienes preguntas específicas que desees resolver? <i>(opcional)</i></label>
+                    <textarea class="filtro-input" id="preguntas" name="preguntas" rows="3" placeholder="Tu respuesta"></textarea>
+                </div>
+
+                <!-- 9 · Opción única · obligatoria -->
+                <fieldset class="filtro-card pregunta-grupo">
+                    <legend class="pregunta-label">Modalidad de preferencia para asesoría <span class="req">*</span></legend>
+                    <label class="opcion"><input type="radio" name="modalidad" value="Llamada / Videollamada" required> Llamada / Videollamada</label>
+                    <label class="opcion"><input type="radio" name="modalidad" value="Presencial"> Presencial</label>
+                    <label class="opcion"><input type="radio" name="modalidad" value="Indistinto"> Indistinto</label>
+                </fieldset>
+
+                <!-- 10 y 11 (Costos y condiciones / Servicios adicionales): ahora viven en index.html#costos.
+                     Aquí solo queda el aviso legal, que pertenece al envío del formulario. -->
+                <section class="filtro-card">
+                    <div class="bloque-texto">
+                        <p>El envío de este formulario no constituye una relación abogado-cliente.</p>
+                    </div>
+                </section>
+
+                <!-- 12 · Bloque de texto: aviso de contacto -->
+                <section class="filtro-card">
+                    <h2 class="bloque-titulo">Si deseas agendar tu asesoría, al finalizar me pondré en contacto contigo para indicarte los pasos a seguir, compartirte los datos de pago y horarios disponibles.</h2>
+                    <div class="bloque-texto">
+                        <p>La cita se confirma una vez realizado el pago correspondiente.</p>
+                    </div>
+                </section>
+
+                <!-- 13 · Opción única · obligatoria -->
+                <fieldset class="filtro-card pregunta-grupo">
+                    <legend class="pregunta-label">¿En qué horario tienes mayor disponibilidad? <span class="req">*</span></legend>
+                    <label class="opcion"><input type="radio" name="horario" value="Mañana (9:00 a 12:00)" required> Mañana (9:00 a 12:00)</label>
+                    <label class="opcion"><input type="radio" name="horario" value="Tarde (12:00 a 16:00)"> Tarde (12:00 a 16:00)</label>
+                    <label class="opcion"><input type="radio" name="horario" value="Noche (16:00 a 18:00)"> Noche (16:00 a 18:00)</label>
+                </fieldset>
+
+                <!-- 14 · Bloque de texto final (se ve antes de enviar) -->
+                <section class="filtro-card">
+                    <h2 class="bloque-titulo">Información recibida.</h2>
+                    <div class="bloque-texto">
+                        <p>En breve me pondré en contacto para indicarte la disponibilidad y continuar con la programación de tu asesoría.</p>
+                    </div>
+                </section>
+
+                <p class="error-msg" id="error-envio" hidden>No se pudo enviar tu solicitud. Inténtalo de nuevo.</p>
+
+                <div class="filtro-acciones">
+                    <button type="submit" class="btn-enviar" id="btn-enviar">Enviar</button>
+                    <button type="button" class="btn-borrar" id="btn-borrar">Borrar formulario</button>
+                </div>
+            </form>
         </div>
 
-        <div class="pregunta-grupo">
-            <label>2. ¿En qué área requiere asesoría?</label>
-            <select name="area" required>
-                <option value="">Seleccione una opción...</option>
-                <option value="civil">Derecho Civil</option>
-                <option value="familiar">Derecho Familiar</option>
-                <option value="amparo">Juicio de Amparo</option>
-                <option value="otro">Otro</option>
-            </select>
+        <!-- ================= CONFIRMACIÓN (tras enviar) ================= -->
+        <div id="filtro-gracias" hidden>
+            <div class="filtro-card filtro-card-header">
+                <p class="filtro-titulo">Solicitud de Asesoría Jurídica.</p>
+                <p class="confirmacion-mensaje">Gracias por compartir la información de tu caso, lo revisaré a la brevedad.</p>
+                <button type="button" class="confirmacion-enlace" id="btn-otra">Enviar otra respuesta</button>
+                <a href="index.html" class="confirmacion-enlace">Volver al inicio</a>
+            </div>
         </div>
 
-        <div class="pregunta-grupo">
-            <label>3. Describa brevemente su situación legal:</label>
-            <textarea name="descripcion" rows="4" required placeholder="Su mensaje aquí..."></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn">Enviar para Revisión</button>
-    </form>
-</div>
+    </main>
 
     <footer>
-        &copy; 2026 Lic. Lilibeth Navarrete. Todos los derechos reservados.
+        <p>&copy; 2026 Lic. Lilibeth Navarrete. Todos los derechos reservados.</p>
     </footer>
 
+    <script src="store.js"></script>
+    <script src="encuesta.js"></script>
 </body>
 </html>

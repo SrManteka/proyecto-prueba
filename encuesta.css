@@ -1,0 +1,233 @@
+/*
+ * encuesta.css — Estilos de "Solicitud de Asesoría Jurídica" (encuesta.html).
+ *
+ * El tema replica el del Google Form original de Lilibeth:
+ *   color de tema  rgb(215,171,82)  -> #D7AB52   (variantes: #6C5019 oscuro, #EAC167 claro)
+ *   fondo de página rgb(217,217,217) -> #D9D9D9
+ *   fuente Lora (encabezado 22, preguntas 14, texto 12)
+ *   una tarjeta blanca por pregunta/bloque, imagen de encabezado 1600x400
+ */
+
+body.filtro-page {
+    --tema: #D7AB52;
+    --tema-oscuro: #6C5019;
+    --tema-claro: #EAC167;
+    --fondo: #D9D9D9;
+    --obligatorio: #D93025;
+    --borde: #DADCE0;
+    --texto: #202124;
+
+    font-family: 'Lora', serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+}
+
+/* Barra superior mínima para volver al sitio */
+.filtro-topbar {
+    padding: 0.8rem 5%;
+    background-color: var(--black);
+    border-bottom: 2px solid var(--gold);
+}
+
+.back-btn {
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover { color: var(--white); }
+
+.filtro-wrap {
+    max-width: 640px;
+    margin: 1.5rem auto 3rem;
+    padding: 0 1rem;
+}
+
+/* Imagen de encabezado (1600x400). Si el archivo no existe, se oculta sola. */
+.filtro-banner {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 1;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.filtro-card {
+    margin-bottom: 0.75rem;
+    padding: 1.5rem;
+    background-color: var(--white);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+}
+
+/* Tarjeta del título: franja del color del tema (se quita si hay imagen) */
+.filtro-card-header { border-top: 10px solid var(--tema); }
+.filtro-banner + .filtro-card-header { border-top: 0; border-radius: 0 0 8px 8px; }
+
+.filtro-titulo {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+.filtro-intro { margin-bottom: 1rem; }
+
+.aviso-obligatorio {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--borde);
+    color: var(--obligatorio);
+    font-size: 0.875rem;
+}
+
+.pregunta-grupo {
+    min-width: 0;
+}
+
+fieldset.filtro-card { min-width: 0; }
+
+/* Un <legend> normal se pega al borde de la tarjeta; así respeta el padding */
+fieldset.filtro-card > legend { float: left; width: 100%; }
+fieldset.filtro-card > legend + * { clear: both; }
+
+.pregunta-label {
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.pregunta-label .ayuda {
+    display: block;
+    margin-top: 0.25rem;
+    font-weight: 400;
+}
+
+.req { color: var(--obligatorio); margin-left: 0.25rem; }
+
+/* Campos con subrayado, como Google Forms */
+.filtro-input {
+    width: 100%;
+    padding: 0.5rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--borde);
+    border-radius: 0;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.875rem;
+    color: var(--texto);
+}
+
+.filtro-input::placeholder { color: #70757A; }
+input.filtro-input { max-width: 50%; }
+textarea.filtro-input { resize: vertical; }
+
+.filtro-input:focus {
+    outline: none;
+    border-bottom: 2px solid var(--tema);
+    padding-bottom: calc(0.5rem - 1px);
+}
+
+.filtro-input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.opcion {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.opcion input[type="radio"],
+.opcion input[type="checkbox"] {
+    accent-color: var(--tema-oscuro);
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+}
+
+.opcion-otro .filtro-input { max-width: none; flex: 1; }
+
+/* Bloques de texto (costos, servicios, avisos) */
+.bloque-titulo {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.bloque-texto { font-size: 0.875rem; }
+.bloque-texto p { margin-bottom: 1rem; }
+.bloque-texto p:last-child { margin-bottom: 0; }
+
+.error-msg {
+    margin-top: 0.75rem;
+    color: var(--obligatorio);
+    font-size: 0.875rem;
+}
+
+.filtro-acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.btn-enviar {
+    padding: 0.7rem 1.75rem;
+    background-color: var(--tema);
+    color: var(--texto);
+    border: 0;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-enviar:hover:not(:disabled) { background-color: var(--tema-claro); }
+.btn-enviar:disabled { opacity: 0.6; cursor: wait; }
+
+.btn-borrar {
+    padding: 0.7rem 1rem;
+    background: transparent;
+    color: var(--tema-oscuro);
+    border: 0;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-borrar:hover { background-color: rgba(215, 171, 82, 0.15); }
+
+/* Confirmación tras enviar */
+.confirmacion-mensaje { margin-bottom: 1rem; }
+
+.confirmacion-enlace {
+    display: inline-block;
+    margin-right: 1.5rem;
+    color: var(--tema-oscuro);
+    font-size: 0.875rem;
+    text-decoration: underline;
+    background: none;
+    border: 0;
+    padding: 0;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .filtro-titulo { font-size: 1.5rem; }
+    .filtro-card { padding: 1.25rem; }
+    input.filtro-input { max-width: 100%; }
+    .filtro-acciones { flex-direction: column-reverse; gap: 0.75rem; align-items: stretch; }
+}
