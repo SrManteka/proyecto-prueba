@@ -1,0 +1,183 @@
+/* admin.css - Estilos del panel de administracion (admin.html) */
+
+:root {
+    --gold: #D4AF37;
+    --dark-gray: #333333;
+    --black: #000000;
+    --white: #FFFFFF;
+    --light-gray: #f4f4f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: var(--light-gray);
+    color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Login Container */
+.login-container {
+    background-color: var(--white);
+    padding: 4rem;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--black);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fafafa;
+    font-family: inherit;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--gold);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn-login:hover {
+    background-color: var(--black);
+    transform: translateY(-2px);
+}
+
+/* Dashboard (Hidden by default) */
+#dashboard {
+    display: none;
+    width: 90%;
+    max-width: 1200px;
+    background-color: var(--white);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 1rem;
+}
+
+.dashboard-header h2 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.btn-logout {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 1.2rem;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #fafafa;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--dark-gray);
+}
+
+tr:hover {
+    background-color: #fcfcfc;
+}
+
+.status-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* Solicitudes del Filtro Legal */
+#solicitudes-body tr.fila-solicitud { cursor: pointer; }
+.fila-detalle td { background-color: #fafafa; padding: 1.5rem 2rem; }
+.detalle-item { margin-bottom: 1rem; }
+.detalle-item:last-child { margin-bottom: 0; }
+.detalle-item strong {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dark-gray);
+}
+.detalle-item span { white-space: pre-wrap; }
+.solicitudes-vacio { margin-top: 2rem; text-align: center; color: #777; }
