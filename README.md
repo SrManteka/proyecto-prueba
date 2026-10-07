@@ -13,7 +13,6 @@ Proyecto de aprendizaje de Javier, hecho con IA y terminal. Sitio estático: HTM
 | `encuesta.html` · `encuesta.css` · `encuesta.js` | **Filtro Legal**: formulario "Solicitud de Asesoría Jurídica" (réplica del Google Form original) |
 | `store.js` | Capa de datos del filtro: `enviarSolicitud()` y `listarSolicitudes()` |
 | `admin.html` · `admin.css` · `admin-solicitudes.js` | Panel administrativo: muestra las solicitudes recibidas |
-| `admin/index.html` | Versión antigua del panel (obsoleta) |
 
 ## Cómo verlo en tu computadora
 
